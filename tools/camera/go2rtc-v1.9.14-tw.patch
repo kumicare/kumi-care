@@ -1,0 +1,25 @@
+diff --git a/internal/xiaomi/xiaomi.go b/internal/xiaomi/xiaomi.go
+index 1801fa8..e6164c4 100644
+--- a/internal/xiaomi/xiaomi.go
++++ b/internal/xiaomi/xiaomi.go
+@@ -344,7 +344,7 @@ const AppXiaomiHome = "xiaomiio"
+ 
+ func GetBaseURL(region string) string {
+ 	switch region {
+-	case "de", "i2", "ru", "sg", "us":
++	case "de", "i2", "ru", "sg", "tw", "us":
+ 		return "https://" + region + ".api.io.mi.com/app"
+ 	}
+ 	return "https://api.io.mi.com/app"
+diff --git a/www/add.html b/www/add.html
+index a2e0d85..23fcb79 100644
+--- a/www/add.html
++++ b/www/add.html
+@@ -492,6 +492,7 @@
+             <select id="xiaomi-id" name="id" required></select>
+             <select name="region" required>
+                 <option value="cn">China</option>
++                <option value="tw">Taiwan</option>
+                 <option value="de">Europe</option>
+                 <option value="i2">India</option>
+                 <option value="ru">Russia</option>

@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.log
+.DS_Store
+tools/xiaomi-token-extractor/
+# Ignore future extractor downloads too.
+token_extractor_docker/
+token_extractor_docker.zip
+
+.local/
+.venv-extractor/

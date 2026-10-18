@@ -1,0 +1,22 @@
+name: kumi-care
+services:
+  mosquitto:
+    image: ${MOSQUITTO_IMAGE:?Set the resolved image digest}
+    container_name: kumi-care-mosquitto
+    restart: unless-stopped
+    network_mode: host
+    user: "1883:1883"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 128m
+    pids_limit: 64
+    volumes:
+      - ./config:/mosquitto/config:ro
+      - ./certs:/mosquitto/certs:ro
+      - ./data:/mosquitto/data
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

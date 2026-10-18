@@ -1,0 +1,5 @@
+user door-sensor
+topic write care/v1/home/main/device/front-door/event
+
+user care-backend
+topic read care/v1/home/main/device/+/event

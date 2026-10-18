@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Care v1 door contact event",
+  "type": "object",
+  "required": ["eventId", "deviceId", "sensorType", "eventType", "occurredAt", "source", "sequence", "rssi"],
+  "properties": {
+    "eventId": {"type": "string", "format": "uuid"},
+    "deviceId": {"type": "string", "pattern": "^[A-Za-z0-9_-]{1,100}$"},
+    "sensorType": {"const": "DOOR_CONTACT"},
+    "eventType": {"enum": ["OPEN", "CLOSED", "LEFT_OPEN"]},
+    "occurredAt": {"type": "string", "format": "date-time"},
+    "source": {"enum": ["XIAOMI_BLE", "SYNTHETIC_MQTT_ACCEPTANCE"]},
+    "sequence": {"type": "integer", "minimum": 1},
+    "rssi": {"type": "integer"}
+  },
+  "additionalProperties": true
+}
